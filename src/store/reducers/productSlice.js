@@ -52,6 +52,9 @@ const productsSlice = createSlice({
 const updateProductList = (data, dispatch, getState) => {
   const state = getState();
   const currProducts = [...state.products.products];
+  console.log("passed data is : ", data);
+  console.log("curr page is :", state.page);
+  console.log("curr state : ", currProducts);
   let found = false;
   for(let i = 0; i < currProducts.length; i += 1) {
     if(currProducts[i].id == data.id) {
@@ -63,6 +66,7 @@ const updateProductList = (data, dispatch, getState) => {
   if(!found) {
     currProducts.unshift(data);
   }
+  console.log("after state : ", currProducts);
   dispatch(setProductData(currProducts));
 }
 
@@ -103,6 +107,7 @@ export const addNewProductsData = createAsyncThunk(
         `https://dummyjson.com/products/add`, JSON.stringify(data)
       );
       if (response && response.data) {
+        data.id = response.data.id;
         updateProductList(data, dispatch, getState);
       } else {
       }
@@ -147,7 +152,9 @@ export const fetchCategoryProducts = createAsyncThunk(
       );
 
       dispatch(setProductData(response.data.products));
+      dispatch(setPage(1));
       dispatch(setHasMore(false));
+    
 
       return response.data;
     } catch (err) {
