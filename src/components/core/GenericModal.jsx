@@ -6,10 +6,11 @@ const GenericModal = ({ isOpen, onClose, inputs, onSubmit, currentData, modalHea
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const data = {};
+    const data = {...currentData}
     formData.forEach((value, key) => {
       data[key] = value;
     });
+    console.log("Changed Data : ", data);
     onSubmit(data);
   };
 

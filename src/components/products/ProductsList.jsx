@@ -12,6 +12,8 @@ import {
   fetchProductsData,
   setPage,
   fetchCategoryProducts,
+  updateProductsData
+
 } from "../../store/reducers/productSlice";
 import { fetchCategoryData } from "../../store/reducers/productCategoriesSlice";
 import CustomTable from "../core/CustomTable";
@@ -131,6 +133,8 @@ const ProductsList = () => {
 
   const handleSubmit = (data) => {
     console.log("Data is : ", data);
+    dispatch(updateProductsData(data));
+
     setModalOpen(false);
   }
 
