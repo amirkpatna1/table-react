@@ -142,6 +142,7 @@ const CustomTab = () => {
           inputs={inputs}
           onSubmit={handleSubmit}
           currentData={modalData}
+          modalHeading={"Add Product Details"}
         />
       </div>
     </>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const GenericModal = ({ isOpen, onClose, inputs, onSubmit, currentData }) => {
+const GenericModal = ({ isOpen, onClose, inputs, onSubmit, currentData, modalHeading }) => {
   if (!isOpen) return null;
 
   const handleSubmit = (event) => {
@@ -54,7 +54,7 @@ const GenericModal = ({ isOpen, onClose, inputs, onSubmit, currentData }) => {
     <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center p-4">
       <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold">Change Product Details</h2>
+          <h2 className="text-lg font-semibold">{modalHeading}</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-500 focus:outline-none text-xl">
             &#10005;
           </button>

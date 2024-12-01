@@ -158,6 +158,7 @@ const ProductsList = () => {
         inputs={inputs}
         onSubmit={handleSubmit}
         currentData={modalData}
+        modalHeading={"Change Product Details"}
       />
     </div>
   );
