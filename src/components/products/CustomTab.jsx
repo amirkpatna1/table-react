@@ -12,7 +12,7 @@ import { TbPerfume } from "react-icons/tb";
 import { MdCancel, MdOutlineTableRestaurant } from "react-icons/md";
 import { FaCarrot } from "react-icons/fa";
 import { IoMdColorWand } from "react-icons/io";
-import { setInitialProductState } from "../../store/reducers/productSlice";
+import { setInitialProductState, addNewProductsData } from "../../store/reducers/productSlice";
 import { useSearchParams } from "react-router-dom";
 
 const buttonConfig = {
@@ -64,8 +64,7 @@ const CustomTab = () => {
     {
       "key": "price",
       "label": "Price",
-      type: 'number',
-      disabled: true
+      type: 'number'
     },
     {
       "key": "rating",
@@ -98,6 +97,7 @@ const CustomTab = () => {
 
   const handleSubmit = (data) => {
     console.log("Data is : ", data);
+    dispatch(addNewProductsData(data));
     setModalOpen(false);
   }
 

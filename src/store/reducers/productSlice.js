@@ -97,22 +97,18 @@ export const fetchProductsData = createAsyncThunk(
 
 export const addNewProductsData = createAsyncThunk(
   "products/add",
-  async (data, { dispatch }) => {
+  async (data, { dispatch, getState }) => {
     try {
-
       const response = await axios.post(
         `https://dummyjson.com/products/add`, JSON.stringify(data)
       );
-      
       if (response && response.data) {
-        
-        // dispatch(setProductData(response.data.products));
+        updateProductList(data, dispatch, getState);
       } else {
-        // dispatch(setError("No products found or unexpected response format."));
       }
     } catch (err) {
-      console.error("Error fetching products:", err);
-      dispatch(setError("An error occurred while fetching products."));
+      console.error("Error adding product:", err);
+      dispatch(setError("An error occurred while adding product."));
     } finally {
       dispatch(setLoading(false));
     }
