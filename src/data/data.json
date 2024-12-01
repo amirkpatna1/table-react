@@ -2,13 +2,49 @@
   "metadata": "Top gainers, losers, and most actively traded US tickers",
   "last_updated": "2024-11-15 16:15:58 US/Eastern",
   "headers": [
-    "ticker",
-    "price",
-    "change_amount",
-    "change_percentage",
-    "volume"
+    {
+      "key": "ticker",
+      "label": "Ticker"
+    },
+    {
+      "key": "price",
+      "label": "Price"
+    },
+    {
+      "key": "change_amount",
+      "label": "Change amount"
+    },
+    {
+      "key": "change_percentage",
+      "label": "Change percentage"
+    },
+    {
+      "key": "volume",
+      "label": "Volume"
+    }
   ],
-  "ProductHeaders": ["title", "category", "price", "rating", "stock"],
+  "ProductHeaders": [
+    {
+      "key": "title",
+      "label": "Title"
+    },
+    {
+      "key": "category",
+      "label": "Category"
+    },
+    {
+      "key": "price",
+      "label": "Price"
+    },
+    {
+      "key": "rating",
+      "label": "Rating"
+    },
+    {
+      "key": "stock",
+      "label": "Stock"
+    }
+  ],
   "top_gainers": [
     {
       "ticker": "AREN",
