@@ -126,13 +126,11 @@ const ProductsList = () => {
   }
 
   const handleClick = (data) => {
-    console.log("Amir Khan ", data);
     setModalData(data)
     setModalOpen(true);
   };
 
   const handleSubmit = (data) => {
-    console.log("Data is : ", data);
     dispatch(updateProductsData(data));
 
     setModalOpen(false);

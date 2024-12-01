@@ -52,9 +52,6 @@ const productsSlice = createSlice({
 const updateProductList = (data, dispatch, getState) => {
   const state = getState();
   const currProducts = [...state.products.products];
-  console.log("passed data is : ", data);
-  console.log("curr page is :", state.page);
-  console.log("curr state : ", currProducts);
   let found = false;
   for(let i = 0; i < currProducts.length; i += 1) {
     if(currProducts[i].id == data.id) {
@@ -66,7 +63,6 @@ const updateProductList = (data, dispatch, getState) => {
   if(!found) {
     currProducts.unshift(data);
   }
-  console.log("after state : ", currProducts);
   dispatch(setProductData(currProducts));
 }
 
@@ -124,7 +120,6 @@ export const updateProductsData = createAsyncThunk(
   "products/update",
   async (data, { dispatch, getState }) => {
     try {
-      console.log(data);
       const response = await axios.put(
         `https://dummyjson.com/products/${data.id}`, JSON.stringify(data)
       );

@@ -96,7 +96,6 @@ const CustomTab = () => {
   };
 
   const handleSubmit = (data) => {
-    console.log("Data is : ", data);
     dispatch(addNewProductsData(data));
     setModalOpen(false);
   }
