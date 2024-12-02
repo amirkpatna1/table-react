@@ -1,6 +1,5 @@
 import React from "react";
 import CustomCell from "./CustomCell";
-// import data from "../../data/data.json";
 
 const CustomRow = ({ data, header, rowIndex }) => {
   return (

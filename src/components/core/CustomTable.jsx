@@ -9,7 +9,6 @@ const CustomTable = ({ data, header }) => {
         <CustomHeader header={header} />
         <tbody>
           {data?.map((currRow, rowIndex) => (<CustomRow key={rowIndex} data={currRow} header={header} rowIndex={rowIndex} />))}
-          <CustomRow data={data} header={header} />
         </tbody>
       </table>
     </>
