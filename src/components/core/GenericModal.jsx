@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const GenericModal = ({ isOpen, onClose, inputs, onSubmit, currentData, modalHeading }) => {
   if (!isOpen) return null;
@@ -14,13 +14,13 @@ const GenericModal = ({ isOpen, onClose, inputs, onSubmit, currentData, modalHea
   };
 
   const renderInput = (input) => {
-    const [inputValue, setInputValue] = useState((currentData && currentData[input.key]) || '');
+    const inputValue = currentData && currentData[input.key] || '';
     switch (input.type) {
       case 'select':
         return (
           <select
             name={input.key}
-            onChange={(event) => setInputValue(event.target.value)}
+            onChange={input.onChange}
             value={inputValue}
             required={input.required}
             className="border border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-400 focus:ring-opacity-50 rounded-md shadow-sm p-2 text-sm"
@@ -37,7 +37,7 @@ const GenericModal = ({ isOpen, onClose, inputs, onSubmit, currentData, modalHea
           <input
             type={input.type}
             name={input.key}
-            onChange={(event) => setInputValue(event.target.value)}
+            onChange={input.onChange}
             value={inputValue}
             required={input.required}
             placeholder={input.placeholder || ''}

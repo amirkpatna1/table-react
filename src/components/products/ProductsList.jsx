@@ -130,6 +130,10 @@ const ProductsList = () => {
     setModalOpen(true);
   };
 
+  const handleInputChange = (key, value) => {
+    setModalData(prev => ({ ...prev, [key]: value }));
+  };
+
   const handleSubmit = (data) => {
     dispatch(updateProductsData(data));
 
@@ -157,9 +161,13 @@ const ProductsList = () => {
       <GenericModal
         isOpen={isModalOpen}
         onClose={() => setModalOpen(false)}
-        inputs={inputs}
+        inputs={inputs.map(input => ({
+          ...input,
+          onChange: (e) => handleInputChange(input.key, e.target.value)
+        }))}
         onSubmit={handleSubmit}
         currentData={modalData}
+        onChange={setModalData}
         modalHeading={"Change Product Details"}
       />
     </div>

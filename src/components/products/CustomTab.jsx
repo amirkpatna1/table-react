@@ -100,6 +100,10 @@ const CustomTab = () => {
     setModalOpen(false);
   }
 
+  const handleInputChange = (key, value) => {
+    setModalData(prev => ({ ...prev, [key]: value }));
+  };
+
   return (
     <>
       <div className="flex justify-between">
@@ -138,7 +142,10 @@ const CustomTab = () => {
         <GenericModal
           isOpen={isModalOpen}
           onClose={() => setModalOpen(false)}
-          inputs={inputs}
+          inputs={inputs.map(input => ({
+            ...input,
+            onChange: (e) => handleInputChange(input.key, e.target.value)
+          }))}
           onSubmit={handleSubmit}
           currentData={modalData}
           modalHeading={"Add Product Details"}
